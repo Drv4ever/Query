@@ -1,13 +1,10 @@
 const express = require('express');
-
 const Question = require('../models/question');
-
 const router = express.Router();
 
-// creating  question 
-
-router.post('/',async(req,res)=>{
-    try {
+// Create a question
+router.post('/', async (req, res) => {
+  try {
     const question = await Question.create(req.body);
     res.status(201).json(question);
   } catch (err) {
@@ -15,11 +12,9 @@ router.post('/',async(req,res)=>{
   }
 });
 
-
-// get all question 
-
-router.post('/',async(req,res)=>{
-    try {
+// Get all questions
+router.get('/', async (req, res) => {
+  try {
     const questions = await Question.find().sort({ createdAt: -1 });
     res.json(questions);
   } catch (err) {
@@ -27,14 +22,14 @@ router.post('/',async(req,res)=>{
   }
 });
 
-// get one questio 
-
-router.get("/:id", async (req, res) => {
+// Get one question by id
+router.get('/:id', async (req, res) => {
   try {
     const question = await Question.findById(req.params.id);
+    if (!question) return res.status(404).json({ error: "Question not found" });
     res.json(question);
   } catch (err) {
-    res.status(404).json({ error: "Question not found" });
+    res.status(400).json({ error: "Invalid question ID" });
   }
 });
 

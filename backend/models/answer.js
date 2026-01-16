@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const ansSchemea = new mongoose.Schema({
+const answerSchema = new mongoose.Schema(
+  {
     questionId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Question",
@@ -10,8 +11,16 @@ const ansSchemea = new mongoose.Schema({
       type: String,
       required: true,
     },
-},
-{timestamp : true}
+    author: {
+      type: String,
+      default: "anonymous",
+    },
+    likes: {
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true } // fixed typo
 );
 
-module.export = mongoose.model('answer',ansSchemea)
+module.exports = mongoose.model('Answer', answerSchema); // fixed typo and capitalization
