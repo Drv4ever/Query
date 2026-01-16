@@ -7,10 +7,10 @@ interface TopBarProps {
 import React from 'react';
 export function TopBar({ onAddQuestion }: TopBarProps) {
   return (
-    <div className="w-full flex justify-center border-b border-zinc-800 bg-[#232428]">
-      <div className="w-full max-w-5xl px-3 sm:px-6">
-        <div className="h-14 flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-
+    <div className="w-full flex justify-center border-b border-zinc-800 bg-[#232428] rounded">
+      <div className="w-full max-w-5xl px-3 sm:px-6 rounded">
+        <div className="h-14 flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-white">
+          QUERY
           {/* Search */}
           <div className="flex-1 w-full flex justify-center">
             <div className="relative w-full sm:w-2/3 md:w-1/2">

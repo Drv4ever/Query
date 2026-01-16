@@ -43,7 +43,7 @@ export function QuestionCard({ question, onAddReply }: QuestionCardProps) {
     <div
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
-      className="py-6 border-b border-[#2c2e33] hover:bg-zinc-100 transition-colors"
+      className="py-6 border-b border-zinc-300 hover:bg-zinc-100 transition-colors"
     >
       <div className="flex items-start gap-4">
         <div className="flex-1 min-w-0">
